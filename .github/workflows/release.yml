@@ -13,11 +13,14 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-    - name: Setup
-      uses: coursier/setup-action@v1
+    - name: Setup JDK
+      uses: actions/setup-java@v5
       with:
-        jvm: temurin:8
-        apps: sbt
+        distribution: "zulu"
+        java-version: 8
+        cache: sbt
+    - name: Setup sbt
+      uses: sbt/setup-sbt@v1
     - name: Coursier cache
       uses: coursier/cache-action@v5
     - name: Test
