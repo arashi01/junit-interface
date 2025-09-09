@@ -14,9 +14,10 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
     - name: Setup
-      uses: olafurpg/setup-scala@v10
+      uses: coursier/setup-action@v1
       with:
-        java-version: "adopt@1.8"
+        jvm: temurin:8
+        apps: sbt
     - name: Coursier cache
       uses: coursier/cache-action@v5
     - name: Test
